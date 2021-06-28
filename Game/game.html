@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Play | NyteFighter</title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="../Resources/favicon.ico" type="image/x-icon">
+        <style>
+            body {
+                background: black;
+                margin: 0;
+                overflow: hidden;
+                font-family: "Bungee";
+            }
+        </style>
+    </head>
+    <body>
+        <div class="fixed text-white m-3 select-none">
+            <span>Score: </span>
+            <span id="score">0</span>
+        </div>
+        <div class="fixed text-white mt-9 ml-3 select-none">
+            <span>Lives: </span>
+            <span id="lives">10</span>
+        </div>
+        <!-- change back to flex -->
+        <div class="fixed inset-0 flex items-center justify-center select-none" id="gameovermodal">
+            <div class="bg-white max-w-md w-full p-6 text-center">
+                <h2 class="text-3xl font-bold mt-2 leading-none" id="points">0</h1>
+                <p class="text-sm">Points</p>
+                <div>
+                    <button class="bg-red-500 w-full py-3 rounded-full mt-2 text-white focus:outline-none mb-2" id="startgamebtn">Start Game</button>
+                </div>
+                <div>
+                    <a class="mt-2" href="../index.html">Return Home</a>
+                </div>
+            </div>
+        </div>
+        <div class="fixed inset-0 hidden items-center justify-center select-none" id="pausegamemodal">
+            <div class="bg-white max-w-md w-full p-6 text-center">
+                <h1 class="text-3xl font-bold mt-2 leading-none" id="title">PAUSED</h1>
+                <h2 class="text-3xl font-bold mt-2 leading-none" id="pausepoints">0</h1>
+                <p class="text-sm">Points</p>
+                <h2 class="text-3xl font-bold mt-2 leading-none" id="pauselives">10</h1>
+                    <p class="text-sm">Lives</p>
+                <div>
+                    <button class="bg-red-500 w-full py-3 rounded-full mt-2 text-white focus:outline-none mb-2" id="playgamebtn">Play</button>
+                </div>
+                <div>
+                    <a class="mt-2" href="../index.html">Return Home</a>
+                </div>
+            </div>
+        </div>
+        <img src="../Resources/pausebutton.png" class="fixed right-0 hidden select-none" id="pausebutton" width="40" height="40" />
+        <canvas id="game"></canvas>
+        <script src="game.js" type="text/javascript"></script>
+    </body>
+</html>

@@ -1,0 +1,99 @@
+body {
+    overflow-x: hidden;
+    font-family: 'Bungee', fantasy;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    font-size: 125px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+.help {
+    width: 75%;
+    margin: 0 auto;
+}
+
+#regularenemy, #speedenemy, #tankenemy {
+    display: inline-block;
+    width: 300px;
+    margin: 20px;
+    font-size: 20px;
+}
+
+canvas {
+    text-align: center;
+    margin: 0 auto;
+}
+
+li {
+    text-align: left;
+    font-size: 20px;
+}
+
+.hyperlink {
+    color: lightpink;
+}
+
+
+button {
+    background-color: black;
+    border: 5px solid white;
+    color: white;
+    width: 300px;
+    height: 75px;
+    font-size: 25px;
+    font-family: 'Bungee', fantasy;
+}
+
+.powerupimg {
+    margin: 40px;
+}
+
+#lives, #immunity, #speed {
+    width: 400px;
+    display: inline-block;
+    text-align: top;
+    margin: 30px;
+}
+
+#lives { 
+    width: 325px;
+}
+
+#speed {
+    width: 300px;
+    margin-right: 100px;
+}
+
+#wall {
+    width: 320px;
+    margin-right: 50px;
+}
+
+#speed, #wall {
+    display: inline-block;
+}
+
+.powerupimages {
+    width: 75%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.info {
+    width: 700px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+}

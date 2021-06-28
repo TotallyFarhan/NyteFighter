@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help | NyteFighter</title>
+    <link href="help.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../Resources/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <h1>Help</h1>
+    </div>
+    <div class="help">
+        <div id="objective" class="helpdiv">
+            <h2>Objective</h2>
+            <h3>Your objective is to shoot the enemies and last as long as possible.</h3>
+        </div>
+        <div id="rules" class="helpdiv">
+            <h2>Rules</h2>
+            <ul>
+                <li>You have 10 lives. If an enemies goes past you and reaches the left side of the screen, you lose a life. Lose all your lives and the game is over</li>
+                <li>You immediately lose if an enemy makes contact with you</li>
+                <li>Shooting enemies awards you a certain amount of points. Visit the 'enemies section' to learn more.</li>
+            </ul>
+        </div>
+        <div id="controls" class="helpdiv">
+            <h2>Controls</h2>
+            <ul>
+                <li>Press the 'W' key to move up</li>
+                <li>Press the 'S' key to move down</li>
+                <li>There is no horizontal movement in this game</li>
+                <li>Click the mouse to shoot bullets</li>
+                <li>You start out with 50 bullets. Press the 'R' key to reload when necessary, or whenever you want to.</li>
+            </ul>
+        </div>
+        <div id="player" class="helpdiv">
+            <h2>Meet the Player</h2>
+            <canvas id="playercanvas" width="100" height="100"></canvas>
+            <h3>This is what your player looks like.</h3>
+        </div>
+        <div id="enemies" class="helpdiv">
+            <h2>Meet the Enemies</h2>
+            <canvas id="enemycanvas"></canvas>
+            <div id="regularenemy">
+                <h3>The Regular Enemy</h3>
+                <p>The regular enemy is the green medium sized enemy. It moves at a good speed, and takes 3 bullets to kill.
+                   It rewards 1 point when killed. It will always spawn throughout the game.
+                </p>
+            </div>
+            <div id="tankenemy">
+                <h3>The Tank Enemy</h3>
+                <p>The tank enemy is the pink huge sized enemy. It moves at a slow speed, and takes 10 bullets to kill.
+                   It rewards 5 points when killed. It will start spawning when you reach 50 points in score.
+                </p>
+            </div>
+            <div id="speedenemy">
+                <h3>The Speedy Enemy</h3>
+                <p>The speedy enemy is the yellow tiny enemy. It moves at a fast speed, and takes only 1 bullet to kill.
+                   It rewards 3 points when killed. It will start spawning when you reach 75 points in score.
+                </p>
+            </div>
+        </div>
+        <div id="powerups" class="helpdiv">
+            <h2>PowerUps</h2>
+            <h3>As of now, there are three PowerUps in this game, the Lives PowerUp, the Immunity PowerUp, and the Speed PowerUP. There are more to come soon!</h3>
+            <div class="powerupimages">
+                <img id="livespowerup" class="powerupimg" src="../Resources/livespowerup.png" width="80" height="80" />
+                <img id="immunpowerup" class="powerupimg" src="../Resources/immunitypowerup.png" width="80" height = "80" />
+                <img id="speedowerup" class="powerupimg" src="../Resources/speedpowerup.png" width="80" height = "80" />
+                <img id="wallpowerup" class="powerupimg" src="../Resources//wallpowerup.png" width="80" height = "80" />
+            </div>
+            <div id="lives">
+                <h3>The Lives PowerUp</h3>
+                <p>The Lives PowerUp is the blue circle with the heart. When you pick up this PowerUp, you get an extra life. It's useful when you're close to 
+                   running out of lives and need something to help you get back up. At a time, you only get one life. Not as useful as the immunity, but still
+                   worth your time! It has a 33% chance of spawning.
+                </p>
+            </div>
+            <div id="immunity">
+                <h3>The Immunity PowerUp</h3>
+                <p>The Immunity PowerUp is the orange circle with the sheid. This PowerUp grants you immunity, meaning you cannot die from touching an enemy. Immunity is represented with a white border  
+                   around the player. If an enemy touches you with the immunity shield, they immediately die and your immunity shield goes away, making you invulnerable again. It has a 16% chance of spawning.
+                </p>
+            </div>
+            <br>
+            <div id="speed">
+                <h3>The Speed PowerUp</h3>
+                <p>The Speed PowerUp is the purple circle with the lightning bold. This PowerUp gives you a speed boost on your player, which lasts approximately 8 to 9 seconds. Pretty useful when trying to kill enemies
+                    that are far apart from each other, and you need to get to them quickly. It has a 10% chance of spawning.
+            </div>
+            <div id="wall">
+                <h3>The Wall PowerUp</h3>
+                <p>The Wall PowerUp is the light-blue circle with the hammer. This PowerUp builds you a wall behind you, causing enemies to not be able to go behind you. This means that when an enemy goes behind you, instead
+                    of losing a life, it hits the wall and dies, which removes health from the wall. The wall stays up until it breaks, which takes 9 enemies to break. It has a 5% chance of spawning.
+            </div>
+        </div>
+        <div id="boss" class="helpdiv">
+            <h2>Boss Battle</h2>
+            <h3>When you reach 100 points, a Boss Battle begins!</h3>
+            <img id="bossbattle" class="bossimg" src="../Resources/boss.png" width="400" height="400" />
+            <div class="info">
+                <p>The Boss Battle begins when you reach 100 or more points. It takes 130 bullets to kill the boss. It has an outer shell that acts as a shield. During the boss battle, only the regular green enemies will spawn. You need to shoot the boss and the enemies at the same time. The boss's outer shell can take 100 hits
+                   before breaking. When the shield breaks, the boss is left vulnerable. This causes the regular green enemies to move faster, so they can defeat the player. It takes 30 hits after the shield breaks to kill the boss. After the boss is defeated, the game will resume like normal.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="hyperlink">
+        <button onclick="location.href = '../index.html';">Return Home</button>
+    </div>
+    <script src="./help.js" type="text/javascript"></script>
+</body>
+</html>

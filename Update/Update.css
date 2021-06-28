@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Bungee', fantasy;
+    text-align: center;
+}
+
+h1 {
+    font-size: 125px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+#wallpowerupimg {
+    margin-bottom: 150px;
+}
