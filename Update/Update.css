@@ -3,20 +3,41 @@ body {
     color: white;
     font-family: 'Bungee', fantasy;
     text-align: center;
+    margin: 0 auto;
 }
 
 h1 {
     font-size: 125px;
+    text-align: center;
 }
 
 h2 {
     font-size: 50px;
+    text-align: center;
 }
 
 h3 {
-    font-size: 25px;
+    font-size: 35px;
+    text-align: center;
 }
 
-#wallpowerupimg {
-    margin-bottom: 150px;
+.changes {
+    text-align: left;
+    margin: 0 auto;
+    width: 50%;
+    font-size: 20px;
+}
+
+button {
+    background-color: black;
+    border: 5px solid white;
+    color: white;
+    width: 300px;
+    height: 75px;
+    font-size: 25px;
+    font-family: 'Bungee', fantasy;
+}
+
+.hyperlink {
+    color: lightpink;
 }

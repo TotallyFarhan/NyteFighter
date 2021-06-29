@@ -57,7 +57,7 @@ button {
 }
 
 .powerupimg {
-    margin: 40px;
+    margin: 60px;
 }
 
 #lives, #immunity, #speed {
@@ -82,6 +82,15 @@ button {
 }
 
 #speed, #wall {
+    display: inline-block;
+}
+
+#power {
+    margin-right: 100px;
+}
+
+#power, #slow {
+    width: 300px;
     display: inline-block;
 }
 
