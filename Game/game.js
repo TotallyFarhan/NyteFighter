@@ -21,6 +21,8 @@ let bossSpawned = false;
 let damageTimerVar = 0;
 let damage = 50;
 let slownessTimerVar = 0;
+let allyCount = 0;
+let blocker1 = 0;
 
 //dom variables
 let scoreHTML = document.getElementById('score');
@@ -46,6 +48,15 @@ let playerAmmo = 50;
 let bulletRadius = 5;
 let bulletColor = 'white';
 let bulletSpeed = 20;
+//ally variables 
+let allyX;
+let allyY;
+let allyWidth;
+let allyHeight;
+let allyColor;
+let allyHealth;
+let allyfireRate;
+let allyLevel;
 //enemy variables
 let enemyX;
 let enemyY;
@@ -109,8 +120,8 @@ let multiplierpowerupAction;
 let multiplierpowerupImageUrl;
 //magazine powerup
 //color is #8103FF
+
 //slow powerup
-//color is #ff9fec
 let slownesspowerupX;
 let slownesspowerupY;
 let slownesspowerupRadius;
@@ -118,6 +129,15 @@ let slownesspowerupColor;
 let slownesspowerupSpeed;
 let slownesspowerupAction;
 let slownesspowerupImageUrl;
+//ally powerup
+let allypowerupX;
+let allypowerupY;
+let allypowerupRadius;
+let allypowerupColor;
+let allypowerupSpeed;
+let allypowerupAction;
+let allypowerupImageUrl;
+
 
 //Rocket class
 class Rocket {
@@ -250,6 +270,18 @@ class Powerup {
         if (this.action === 'slow') {
             slownessTimerVar = 500;
         }
+        if (this.action === 'ally') {
+            let allyWidth = 75;
+            let allyY = Math.random() * canvas.height;
+            let allyX = 0 - allyWidth;
+            let allyHeight = 75;
+            let allyColor = '#00C1FF';
+            let allyHealth = 100;
+            let allyfireRate = 25;
+            let allyLevel = 1;
+            allies.push(new Ally(allyX, allyY, allyWidth, allyHeight, allyColor, allyHealth, allyfireRate, allyLevel));
+            allyCount ++;
+        }
     }
     //powerup update func
     update() {
@@ -260,13 +292,12 @@ class Powerup {
 }
 
 class Ally {
-    constructor(x, y, width, height, color, damage, health, fireRate, level) {
+    constructor(x, y, width, height, color, health, fireRate, level) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.color = color;
-        this.damage = damage;
         this.health = health;
         this.fireRate = fireRate;
         this.level = level;
@@ -274,6 +305,17 @@ class Ally {
     draw() {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+
+    update () {
+        this.draw();
+        if (this.x < 90) {
+            this.x ++;
+        }
+    }
+
+    shoot () {
+        bullets.push(new Bullet(this.x + this.width, this.y + (this.height / 2), bulletRadius, bulletColor, bulletSpeed))
     }
 }
 
@@ -342,6 +384,9 @@ let enemies = [];
 let powerups = [];
 //bosses array declaration
 let bosses = [];
+//allies array declaration
+let allies = [];
+
 
 //initiation function: called when game is restarted; used to reset everything
 const init = () => {
@@ -371,6 +416,11 @@ const init = () => {
     bigenemySpeed = 3;
     fastenemySpeed = 12;
     slownessTimerVar = 0;
+    allies = [];
+    allyCount = 0;
+    powerups.forEach(powerup => {
+        powerup.action = '';
+    })
 }
 
 const spawnBoss = () => {
@@ -547,6 +597,20 @@ const spawnPowerups = () => {
             powerups.push(new Powerup(slownesspowerupX, slownesspowerupY, slownesspowerupRadius, slownesspowerupColor, slownesspowerupSpeed, slownesspowerupAction, slownesspowerupImageUrl));
         } 
     }, 5000)
+    setInterval(() => {
+        allypowerupY = Math.random() * canvas.height;
+        allypowerupRadius = 35;
+        allypowerupX = canvas.width + allypowerupRadius;
+        allypowerupColor = '#a8815a';
+        allypowerupSpeed = 5;
+        allypowerupAction = 'ally';
+        allypowerupImageUrl = '../Resources/robot.png';
+
+        let randomNum7 = Math.floor(Math.random() * 2);
+        if (randomNum7 == 1 && currentlyPlaying) {
+            powerups.push(new Powerup(allypowerupX, allypowerupY, allypowerupRadius, allypowerupColor, allypowerupSpeed, allypowerupAction, allypowerupImageUrl));
+        }
+    }, 1000)
 }
 
 //collides function; responsible for collision between rocket and enemies
@@ -682,6 +746,45 @@ const animate = () => {
         }
     })
 
+    allies.forEach((ally, index) => {
+        ally.update();
+        enemies.forEach((enemy, enemyindex) => {
+            if (collides(ally, enemy)) {
+                enemies.splice(enemyindex, 1);
+                ally.health -= 50;
+            }
+        })
+
+        if (ally.health <= 0) {
+            allies.splice(index, 1);
+            allyCount --;
+        }
+        
+            // setInterval(() => {
+            //     blocker1 = 0;
+            //     if (currentlyPlaying && allies.length >= 1) {
+            //         if (blocker1 == 0) {
+            //             bullets.push(new Bullet(ally.x + ally.width, ally.y + (ally.height / 2), bulletRadius, bulletColor, bulletSpeed))
+            //             blocker1 = 1;
+            //         }
+            //     }
+            // }, 500/ally.fireRate)
+        setInterval(() => {
+            if (currentlyPlaying && allies.length >= 1) {
+                if (blocker1 == 0) {
+                    allies.forEach(ally => {
+                        ally.shoot()
+                    })
+                    blocker1 = 1;
+                    setTimeout(() => {
+                        blocker1 = 0;
+                    }, 1000)
+                }
+            }
+        }, 1000)
+        
+    })
+
     //enemies foreach iterator
     enemies.forEach((enemy, index) => {
         //allows all enemies to move
@@ -771,6 +874,7 @@ const animate = () => {
     })
     //rockets update function so it can move
     rocket.update();
+    console.log(allies.length)
 }
 //responsible for character movement
 addEventListener('keydown', evt => {
