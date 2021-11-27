@@ -723,7 +723,7 @@ const spawnPowerups = () => {
     allypowerupImageUrl = "../Resources/robot.png";
 
     let randomNum7 = Math.floor(Math.random() * 10);
-    if (randomNum7 == 1 && currentlyPlaying) {
+    if (randomNum7 == 1 && currentlyPlaying && allyCount <= 3) {
       powerups.push(
         new Powerup(
           allypowerupX,
