@@ -21,7 +21,6 @@ let bossSpawned = false;
 let damageTimerVar = 0;
 let damage = 50;
 let slownessTimerVar = 0;
-let allyCount = 0;
 let blocker1 = 0;
 
 //dom variables
@@ -294,7 +293,6 @@ class Powerup {
           allyLevel
         )
       );
-      allyCount++;
     }
   }
   //powerup update func
@@ -722,8 +720,8 @@ const spawnPowerups = () => {
     allypowerupAction = "ally";
     allypowerupImageUrl = "../Resources/robot.png";
 
-    let randomNum7 = Math.floor(Math.random() * 10);
-    if (randomNum7 == 1 && currentlyPlaying && allyCount <= 3) {
+    let randomNum7 = Math.floor(Math.random() * 5);
+    if (randomNum7 == 1 && currentlyPlaying && allies.length < 2) {
       powerups.push(
         new Powerup(
           allypowerupX,
@@ -736,7 +734,7 @@ const spawnPowerups = () => {
         )
       );
     }
-  }, 1000);
+  }, 10000);
 };
 
 //collides function; responsible for collision between rocket and enemies
