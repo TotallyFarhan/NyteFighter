@@ -1,108 +1,118 @@
 body {
-    overflow-x: hidden;
-    font-family: 'Bungee', fantasy;
-    text-align: center;
-    background-color: black;
-    color: white;
+  overflow-x: hidden;
+  font-family: "Bungee", fantasy;
+  text-align: center;
+  background-color: black;
+  color: white;
 }
 
 h1 {
-    font-size: 125px;
-    margin: 0;
+  font-size: 125px;
+  margin: 0;
 }
 
 h2 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 h3 {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .help {
-    width: 75%;
-    margin: 0 auto;
+  width: 75%;
+  margin: 0 auto;
 }
 
-#regularenemy, #speedenemy, #tankenemy {
-    display: inline-block;
-    width: 300px;
-    margin: 20px;
-    font-size: 20px;
+#regularenemy,
+#speedenemy,
+#tankenemy {
+  display: inline-block;
+  width: 300px;
+  margin: 20px;
+  font-size: 20px;
 }
 
 canvas {
-    text-align: center;
-    margin: 0 auto;
+  text-align: center;
+  margin: 0 auto;
 }
 
 li {
-    text-align: left;
-    font-size: 20px;
+  text-align: left;
+  font-size: 20px;
 }
 
 .hyperlink {
-    color: lightpink;
+  color: lightpink;
 }
 
-
 button {
-    background-color: black;
-    border: 5px solid white;
-    color: white;
-    width: 300px;
-    height: 75px;
-    font-size: 25px;
-    font-family: 'Bungee', fantasy;
+  background-color: black;
+  border: 5px solid white;
+  color: white;
+  width: 300px;
+  height: 75px;
+  font-size: 25px;
+  font-family: "Bungee", fantasy;
 }
 
 .powerupimg {
-    margin: 60px;
+  margin: 60px;
 }
 
-#lives, #immunity, #speed {
-    width: 400px;
-    display: inline-block;
-    text-align: top;
-    margin: 30px;
+#lives,
+#immunity,
+#speed {
+  width: 400px;
+  display: inline-block;
+  text-align: top;
+  margin: 30px;
 }
 
-#lives { 
-    width: 325px;
+#lives {
+  width: 325px;
 }
 
 #speed {
-    width: 300px;
-    margin-right: 100px;
+  width: 300px;
+  margin-right: 100px;
 }
 
 #wall {
-    width: 320px;
-    margin-right: 50px;
+  width: 320px;
+  margin-right: 50px;
 }
 
-#speed, #wall {
-    display: inline-block;
+#speed,
+#wall {
+  display: inline-block;
 }
 
 #power {
-    margin-right: 100px;
+  margin-right: 100px;
 }
 
-#power, #slow {
-    width: 300px;
-    display: inline-block;
+#power,
+#slow {
+  width: 300px;
+  display: inline-block;
+}
+
+#ally {
+  width: 400px;
+  margin: 0 auto;
 }
 
 .powerupimages {
-    width: 75%;
-    text-align: center;
-    margin: 0 auto;
+  width: 75%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .info {
-    width: 700px;
-    text-align: center;
-    margin: 0 auto;
-    font-size: 20px;
+  width: 700px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
 }
